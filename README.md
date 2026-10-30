@@ -1,5 +1,5 @@
 # Sentiment-Analysis-on-Google-Play-Store-Data-using-NLP
-##📊 Sentiment Analysis on Google Play Store Data Using NLP
+📊 Sentiment Analysis on Google Play Store Data Using NLP
 
 ## 📌 Project Overview
 
