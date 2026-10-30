@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😊 Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url('{{ url_for('static', filename='inp4.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6600, #ffcc00);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        textarea {
+            width: 50%;
+            height: 100px;
+            font-size: 16px;
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid #ff5733;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .sentiment-result {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .positive { color: #33ff57; }
+        .negative { color: #ff3333; }
+        .neutral { color: #3385ff; }
+        button {
+            padding: 15px 30px;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff5733, #ffcc00);
+            color: white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease-in-out;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #ffcc00, #ff5733);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>📝 Find Sentiment Analysis</h2>
+    <form method="post">
+        <textarea name="review" placeholder="✍️ Enter your review..."></textarea><br>
+        <button type="submit">🔍 Analyze Sentiment</button>
+    </form>
+    
+    {% if sentiment %}
+        <h3 class="sentiment-result {% if sentiment == 'Positive' %}positive{% elif sentiment == 'Negative' %}negative{% else %}neutral{% endif %}">
+            {{ sentiment }}
+        </h3>
+    {% endif %}
+
+    <br>
+    <button onclick="location.href='/'">🏠 Return to Home</button>
+
+</body>
+</html>
